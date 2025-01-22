@@ -1,0 +1,36 @@
+# Ignore input, output, result, and difference files
+*.in
+*.out
+*.res
+*.dif
+
+# Ignore VSCode workspace and settings files
+.vscode/
+*.code-workspace
+
+# Ignore Makefiles and related files
+Makefile
+makefile
+GNUmakefile
+
+# Ignore other build and temporary files
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.a
+*.lib
+*.log
+*.tmp
+*.swp
+*.bak
+*.~*
+
+# Ignore compiled binary files
+bin/
+build/
+
+# Ignore any other system-specific or IDE-related files
+.DS_Store
+Thumbs.db
