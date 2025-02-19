@@ -23,7 +23,6 @@ char** poStolpcih(char** nizi, int stVhodnih, int* stIzhodnih) {
         }
         new_nizi[j][temp_indx] = '\0';
     }
-
     return new_nizi;
 }
 
@@ -32,5 +31,4 @@ char** poStolpcih(char** nizi, int stVhodnih, int* stIzhodnih) {
 int main() {
     return 0;
 }
-
 #endif
