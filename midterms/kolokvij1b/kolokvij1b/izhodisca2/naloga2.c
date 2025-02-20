@@ -12,7 +12,7 @@ char** naSredino(char** nizi, int ciljnaDolzina) {
         d++; t++;
     }
 
-    char** new_nizi = malloc((d+1)* sizeof(char*));
+    char** new_nizi = (char**)malloc((d+1)* sizeof(char*));
 
     for(int i = 0; i < d; i++) {
         new_nizi[i] = malloc((ciljnaDolzina+1) * sizeof(char));
