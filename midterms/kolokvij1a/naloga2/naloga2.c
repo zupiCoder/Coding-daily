@@ -1,34 +1,29 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 
-char** poStolpcih(char** nizi, int stVhodnih, int* stIzhodnih) {
-    int max = 0;
-    for(int i = 0; i < stVhodnih; i++) {
-        if(strlen(nizi[i]) > max) max = strlen(nizi[i]);
+#include "naloga2.h"
+
+void racionaliziraj(char** nizi) {
+    int d = 0;
+    char** t = nizi;
+    while(*t != NULL) {
+        d++; t++;
     }
 
-    *stIzhodnih = max;
-    char** new_nizi = malloc(max * sizeof(char*));
-
-    for(int j = 0; j < *stIzhodnih; j++) {
-        new_nizi[j] = malloc((stVhodnih+1) * sizeof(char));
-        int temp_indx = 0;
-        for(int i = 0; i < stVhodnih; i++) {
-            if(j < strlen(nizi[i])) {
-                new_nizi[j][temp_indx] = nizi[i][j];
-                temp_indx++;
+    for(int i = 0; i < d; i++) {
+        for(int j = 0; j < d; j++) {
+            if(strcmp(nizi[i], nizi[j]) == 0) {
+                nizi[j] = nizi[i];
             }
         }
-        new_nizi[j][temp_indx] = '\0';
     }
-    return new_nizi;
 }
 
 #ifndef test
-
 int main() {
+
     return 0;
 }
 #endif
