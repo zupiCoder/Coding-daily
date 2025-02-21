@@ -1,32 +1,66 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
-
-int findCombinations(int n, int m) {
-    
-    int count = 0;
-    if(n == 0) return 1;
-
-    for(int i = 1; i <= n; i++) {
-        for(int j = n; j > i && j >= m; j--) {
-            int temp_sum = i*j;
-
-            if (temp_sum <= n) count += findCombinations(n - temp_sum, m);
-        }
-    }      
-    return count;
-}
 
 int main() {
 
-    int n = 0; int m = 0;
+    int v = 0; int s = 0;
+    scanf("%d %d", &v, &s);
 
-    scanf("%d", &n); scanf("%d", &m);
+    int k =0;
 
-    int total = findCombinations(n, m);
+    int** t = malloc(v * sizeof(int*));
 
-    printf("%d\n", total);
+    for(int i = 0; i < v; i++) {
+        t[i] = malloc(s * sizeof(int));
+
+        for(int j = 0; j < s; j++) {
+            scanf("%d", &t[i][j]);
+
+            if(t[i][j] != 0) k++;
+        }
+    }
+
+    int temp = 0;
+    for(int i = 0; i < v; i++) {
+        for(int j = 0; j < s; j++) {
+            if(t[i][j] != 0) {
+                printf("%d", t[i][j]);
+                temp++;
+                if(temp < k)
+                printf("_");
+            }
+        }
+    }
+    printf("\n");
+
+    printf("%d", 0);
+
+    int bi_prev = 0;
+    for(int i = 0; i < v; i++) {
+        int temp = 0;
+        for(int j = 0; j < s; j++) {
+            if(t[i][j] != 0) temp++;
+        }
+        int bi = bi_prev + temp; bi_prev = bi;
+        printf("_%d", bi);
+    }
+    printf("\n");
+
+    temp = 0;
+    for(int i = 0; i < v; i++) {
+        for(int j = 0; j < s; j++) {
+            if(t[i][j] != 0) {
+                printf("%d", j);
+                temp++;
+                if(temp < k)
+                printf("_");
+            }
+        }
+    }
+    printf("\n");
+
 
     return 0;
 }
