@@ -28,7 +28,6 @@ GNUmakefile
 *.bak
 *.~*
 *.h
-skritiTesti*
 # Ignore compiled binary files
 bin/
 build/
