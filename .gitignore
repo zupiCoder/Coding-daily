@@ -3,6 +3,7 @@
 *.out
 *.res
 *.dif
+test*
 
 # Ignore VSCode workspace and settings files
 .vscode/
@@ -26,7 +27,8 @@ GNUmakefile
 *.swp
 *.bak
 *.~*
-
+*.h
+skritiTesti*
 # Ignore compiled binary files
 bin/
 build/
@@ -34,3 +36,7 @@ build/
 # Ignore any other system-specific or IDE-related files
 .DS_Store
 Thumbs.db
+midterms/kol_24/kolokvij1a/kolokvij1a_skritiTesti/naloga1/naloga1
+midterms/kol_23/kolokvij1a/naloga3/naloga3
+midterms/kol_23/kolokvij1a/naloga2/naloga2
+midterms/kol_23/kolokvij1a/naloga1/naloga1
