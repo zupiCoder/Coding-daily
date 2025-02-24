@@ -28,7 +28,6 @@ int main() {
 
         last[abs(t[i])] = i;
     }
-
     int d = 0; int dist = 0;
 
     for(int i= 0; i < MAXIMUM; i++) {
@@ -37,7 +36,6 @@ int main() {
 
         if(dist > d) d = dist;
     }
-
     printf("%d\n", d);
 
     if(d == 0) return 0;
