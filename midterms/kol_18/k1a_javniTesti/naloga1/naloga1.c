@@ -18,6 +18,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         int j = (n - 1) - i;
         if(t[i] == t[j]) {
+            if(abs(j - i) > d)
             d = abs(j - i);
         }
     }
