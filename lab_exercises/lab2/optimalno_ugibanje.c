@@ -16,14 +16,20 @@ int main() {
     while(input != 0) {
         
         if(input == 1) {
-            
+            min = (min + max)/2 + 1;
+        } else if(input == -1) {
+            max = (min + max)/2 - 1;
         }
-
         scanf("%d", &input);
     }
 
-
-
+    if(max == min) {
+        printf("%d\n", max);
+    } else if(max < min || min > max) {
+        printf("PROTISLOVJE\n");
+    } else if(max != min) {
+        printf("%d ", min); printf("%d\n", max);
+    }
 
     return 0;
 }
