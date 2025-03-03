@@ -28,14 +28,14 @@ int main() {
     int* t = malloc(n * sizeof(int));
 
     for(int i = 0; i < n; i++) {
-        int input = 0; scanf("%d", &t[i]);
+        scanf("%d", &t[i]);
         temp_sum += t[i];
 
         if(temp_sum > max_sum) max_sum = temp_sum;
         if(temp_sum < 0) temp_sum = 0;        
     }
 
-    printf("%d\n", recursiveSetter(t,n));
+    printf("%d\n", max_sum);
 
     return 0;
 }
