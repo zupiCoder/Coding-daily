@@ -3,9 +3,8 @@
 #include <stdbool.h>
 #include <limits.h>
 
-//recursive too slow
 int recursive(int* t, int n, int i, int sum, int maxSum) {
-    
+
     if(i == n) return maxSum > sum ? maxSum : sum;
 
     int take = recursive(t, n, i+1, sum + t[i], maxSum);
