@@ -13,82 +13,77 @@
 #define INVALID_STATE '0'
 
 int decimal_fun(char input) {
-    if(input >= '0' && input <= '9') return decimal;
-
-    return -1;
+    return (input >= '0' && input <= '9') ? decimal : -1;
 }
 
 int binary_fun(char input) {
-    if(input == '1' || input == '0') return binary;
-
-    return -1;
+    return (input == '1' || input == '0') ? binary : -1;
 }
 
 int octal_fun(char input) {
-    if(input >= '0' && input <= '7') return octal;
-
-    return -1;
+    return (input >= '0' && input <= '7') ? octal : -1;
 }
 
 int hexa_fun(char input) {
-    if((input >= '0' && input <= '9') || (input >= 'A' && input <= 'F')) return hexa;
-
-    return -1;
+    return ((input >= '0' && input <= '9') || (input >= 'A' && input <= 'F')) ? hexa : -1;
 }
 
 void printState(int state) {
-    if(state == -1 || state == mid) {
-        putchar(INVALID_STATE);
-    } else putchar(VALID_STATE);
-}            
+    putchar((state == -1 || state == mid) ? INVALID_STATE : VALID_STATE);
+}
 
-int getState(char input) {
+int getState(char* input) {
     int state = -1;
-    if(input == '0') {
+    if (*input == '0') {
         state = octal;
-        input = getchar();
-
-        if(input == ' ' || input == '\n') {
+        *input = getchar();
+        if (*input == ' ' || *input == '\n') {
             printState(octal);
             state = start;
-        } else if(input == 'x') {
-            state = mid;
-        } else if(input == 'b') {
+        } else if (*input == 'x' || *input == 'b') {
             state = mid;
         } else {
-            state = octal_fun(input);
+            state = octal_fun(*input);
         }
-    } else state = decimal_fun(input);
-
+    } else {
+        state = decimal_fun(*input);
+    }
     return state;
 }
 
 int main() {
-    
-    char input = getchar(); //0
-    int state = getState(input);
+    char input = getchar();
+    int state = getState(&input);
 
-    while(input != '\n') {
+    while (input != '\n') {
         input = getchar();
 
-        if(state == start) {
-            state = getState(input);
+        if (state == start) {
+            state = getState(&input);
             continue;
         }
 
-        if(input == ' ' || input == '\n') {
+        if (input == ' ' || input == '\n') {
             printState(state);
             state = start;
             continue;
         }
 
-        if(state == decimal) {
-            state = decimal_fun(input);
-        } else if(state == octal) {
-            state = octal_fun(input);
-        } else if(state == hexa || state == mid) {
-            state = hexa_fun(input);
-        } else if(state == binary || state == mid) state = binary_fun(input);
+        switch (state) {
+            case decimal:
+                state = decimal_fun(input);
+                break;
+            case octal:
+                state = octal_fun(input);
+                break;
+            case hexa:
+            case mid:
+                state = hexa_fun(input);
+                break;
+            case binary:
+                state = binary_fun(input);
+                break;
+        }
     }
     putchar('\n');
 
