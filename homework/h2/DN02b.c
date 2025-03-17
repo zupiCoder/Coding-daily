@@ -7,6 +7,7 @@
 #define binary 2
 #define octal 3
 #define mid 4
+#define mid2 6
 #define hexa 5
 
 #define VALID_STATE '1'
@@ -40,8 +41,10 @@ int getState(char* input) {
         if (*input == ' ' || *input == '\n') {
             printState(octal);
             state = start;
-        } else if (*input == 'x' || *input == 'b') {
+        } else if (*input == 'x') {
             state = mid;
+        } else if (*input == 'b') {
+            state = mid2;
         } else {
             state = octal_fun(*input);
         }
@@ -79,6 +82,9 @@ int main() {
             case hexa:
             case mid:
                 state = hexa_fun(input);
+                break;
+            case mid2:
+                state = binary_fun(input);
                 break;
             case binary:
                 state = binary_fun(input);
