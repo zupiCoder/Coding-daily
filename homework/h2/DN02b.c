@@ -30,7 +30,7 @@ int hexa_fun(char input) {
 }
 
 void printState(int state) {
-    putchar((state == -1 || state == mid) ? INVALID_STATE : VALID_STATE);
+    putchar((state == -1 || state == mid || state == mid2) ? INVALID_STATE : VALID_STATE);
 }
 
 int getState(char* input) {
