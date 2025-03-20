@@ -20,7 +20,7 @@ bool hasCycle(struct ListNode *head) {
     return false;
 }
 
-bool hasCycleFaster(struct ListNode *head) {
+bool hasCycleFastest(struct ListNode *head) {
     struct ListNode* slow = head;
     struct ListNode* fast = head;
 
@@ -31,4 +31,16 @@ bool hasCycleFaster(struct ListNode *head) {
         if(slow == fast) return true;
     }
     return false;
+}
+
+bool hasCycleRecursive(struct ListNode *head) {
+    struct ListNode* temp = head;
+
+    if(temp == NULL) return false;
+    if(temp->next == NULL) return false;
+
+    temp->val = INT_MIN;
+    if(temp->next->val == INT_MIN) return true; 
+
+    return hasCycleRecursive(temp->next);
 }
