@@ -2,13 +2,8 @@
 #include <stdlib.h>
 
 int combos(int n, int k) {
-    if(n == 0) {
-        printf("\n");
-        return 1;
-    }
+    if(n == 0) return 1;
     if(n < 0 || k <= 0) return 0;
-
-    printf(" %d +", k);
 
     return combos(n-k, k) + combos(n, k-1);
 }
