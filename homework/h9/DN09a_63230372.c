@@ -2,8 +2,29 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+void sort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
 void razbitja(int arr[], int take[], int **sets, int n, int sum, int k, int k_init, int i, int j, int tempSum) {
-    if(k == 0) {
+    if (k == 0) {
+        bool valid = true;
+        for (int i = 1; i < k_init; i++) {
+            if (sets[i][0] < sets[i - 1][0]) {
+                valid = false;
+                break;
+            }
+        }
+        if (!valid) return;
+        
         printf("{");
         for(int ix = 0; ix < k_init; ix++) {
             if(ix > 0) printf(", {");
@@ -17,14 +38,16 @@ void razbitja(int arr[], int take[], int **sets, int n, int sum, int k, int k_in
     }
     
     if(tempSum == sum) {
+        sort(sets[k-1], j);
         razbitja(arr, take, sets, n, sum, k - 1, k_init, 0, 0, 0);
         return;
     }
 
-    if(tempSum > sum) return;
-    
-    if(i == n) return;
+    if(tempSum + arr[i] > sum) return;
 
+    if(tempSum > sum) return;
+    if(i == n) return;
+    
     razbitja(arr, take, sets, n, sum, k, k_init, i + 1, j, tempSum);
     
     if(take[i] == 0) {
@@ -57,7 +80,7 @@ int main() {
     }
 
     int** sets = (int **) malloc(k * sizeof(int*));
-    for(int i = 0; i < k; i++) sets[i] = calloc(n, sizeof(int));
+    for(int i = 0; i < k; i++) sets[i] = (int *) calloc(n, sizeof(int));
 
     sum = sum / k;
 
