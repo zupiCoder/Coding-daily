@@ -45,7 +45,6 @@ int dodaj(Student **studentje, int stStudentov, int vpisna, char *predmet, int o
         } else {
             s->po[indxPO].ocena = ocena;
         }
-
         return stStudentov;
     }
     return -1;
