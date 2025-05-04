@@ -4,7 +4,6 @@
 #include <string.h>
 #include <limits.h>
 #include "naloga.h"
-
 /*
     typedef struct Vozlisce Vozlisce;
     struct Vozlisce {
@@ -12,7 +11,6 @@
     Vozlisce* naslednje; // kazalec na naslednje vozlišče ( NULL, če ga ni)
     };
 */
-
 int vsotaI(Vozlisce *zacetek) {
     if(zacetek == NULL) return 0;
                                         
@@ -82,9 +80,3 @@ Vozlisce *vstaviUrejenoR(Vozlisce *zacetek, int element) {
 
     return zacetek;
 }
-
-#ifndef test
-int main() {
-    return 0;
-}
-#endif

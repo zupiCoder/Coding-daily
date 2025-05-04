@@ -49,11 +49,3 @@ int dodaj(Student **studentje, int stStudentov, int vpisna, char *predmet, int o
     }
     return -1;
 }
-
-#ifndef test
-
-int main() {
-    return 0;
-}
-
-#endif
