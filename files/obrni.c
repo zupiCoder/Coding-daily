@@ -26,17 +26,17 @@ void obrni(FILE* vhod, FILE* izhod) {
     for(size_t index = start_index; index > 0; index--) {
         if(buffer[index - 1] == '\n') {
             char *temp = (buffer + index);
-            printf("%s", temp);
+            fputs(temp, izhod);
 
             if(first_string == 0) {
                 first_string = 1;
-                printf("\n");
+                fputc('\n', izhod);
             }
 
             buffer[index] = '\0';
         }
     }
-    printf("%s", buffer);
+    fputs(buffer, izhod);
 }
 
 int main(int argc, char *argv[]) {
