@@ -25,17 +25,15 @@ int queens(int *qs, int n, int j);
 */
 
 void run_tests() {
-    // Base cases
-    assert(solve_n_queens(1) == 1);  // 1 queen = 1 way
-    assert(solve_n_queens(2) == 0);  // No valid arrangements
-    assert(solve_n_queens(3) == 0);  // No valid arrangements
+    assert(solve_n_queens(1) == 1);
+    assert(solve_n_queens(2) == 0);
+    assert(solve_n_queens(3) == 0);
 
-    // Classic test cases
-    assert(solve_n_queens(4) == 2);  // 4 queens = 2 solutions
+    assert(solve_n_queens(4) == 2);
     assert(solve_n_queens(5) == 10);
     assert(solve_n_queens(6) == 4);
     assert(solve_n_queens(7) == 40);
-    assert(solve_n_queens(8) == 92); // Classic 8-queens problem
+    assert(solve_n_queens(8) == 92);
 
     printf("All test cases passed!\n");
 }
@@ -68,7 +66,8 @@ int queens(int *qs, int n, int col)
         
         for(int prev_col = 0; prev_col < col; prev_col++)
         {
-            if(qs[prev_col] == try_row || abs(prev_col - col) == abs(qs[prev_col] - try_row)) safe = false;
+            int prev_row = qs[prev_col];
+            if(prev_row == try_row || abs(prev_col - col) == abs(prev_row - try_row)) safe = false;
         }
 
         if(!safe) continue;
