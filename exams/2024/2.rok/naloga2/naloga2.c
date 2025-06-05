@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include "naloga2.h"
 
+typedef struct Vozlisce Vozlisce;
+
+struct Vozlisce {
+    int podatek;
+    Vozlisce* naslednje;
+};
+
 Vozlisce* create_list(int arr[], int length){
     Vozlisce* start = (Vozlisce*) malloc(sizeof(Vozlisce));
     start->podatek = arr[0];
