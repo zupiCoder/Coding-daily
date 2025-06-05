@@ -3,7 +3,16 @@
 *.out
 *.res
 *.dif
+*.ppm
+*.txt
+*.bin
+*.bout
+*.pgm
 test*
+dat0*
+rezultat*
+a.out
+*.exe
 
 # Ignore VSCode workspace and settings files
 .vscode/
