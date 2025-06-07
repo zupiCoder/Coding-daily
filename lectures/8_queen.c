@@ -24,19 +24,6 @@ int queens(int *qs, int n, int j);
     ce se dame napadajo potem return- base case;
 */
 
-void run_tests() {
-    assert(solve_n_queens(1) == 1);
-    assert(solve_n_queens(2) == 0);
-    assert(solve_n_queens(3) == 0);
-
-    assert(solve_n_queens(4) == 2);
-    assert(solve_n_queens(5) == 10);
-    assert(solve_n_queens(6) == 4);
-    assert(solve_n_queens(7) == 40);
-    assert(solve_n_queens(8) == 92);
-
-    printf("All test cases passed!\n");
-}
 
 int solve_n_queens(int n)
 {
@@ -78,8 +65,15 @@ int queens(int *qs, int n, int col)
     return count;
 }
 
+
 int main()
 {
-    run_tests();
+
+    int n = 0;
+    scanf("%d",  &n);
+
+    int count = solve_n_queens(n);
+    printf("%d\n", count);
+
     return 0;
 }

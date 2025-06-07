@@ -32,7 +32,6 @@ int main(int argc, char** argv) {
             largeSize = 0;
             continue;
         }
-
         //bitwise comparison nebo enak 1 saj buffer[i] neko stevilo in 1 << 7 == 128, zato nebo enak 1 razen ko buffer[i] == 128
         if ((buffer[i] & (1 << 7)) != 0) {
             largeSize = 1;
