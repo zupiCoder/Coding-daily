@@ -8,7 +8,9 @@
 *.bin
 *.bout
 *.pgm
-test*
+*.diff
+*.dat
+*.lab
 dat0*
 rezultat*
 a.out
